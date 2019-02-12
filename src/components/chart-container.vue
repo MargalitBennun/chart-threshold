@@ -41,10 +41,10 @@
     import { GETTER_TYPES } from "../store/getters";
     import { MUTATION_TYPES } from "../store/mutations";
     import { ACTION_TYPES } from "../store/actions";
-    import DATA_SOURCES from '../logic/DATA_SOURCES';
+    import DATA_SOURCES from '../assets/DATA_SOURCES';
     import lineChart from './line-chart';
     import inputField from './input-field';
-    import {getArrMax, getArrMin, joinAllValues} from '../logic/utils';
+    import {getArrMax, getArrMin, joinAllValues} from '../assets/utils';
     import {STATES} from "../store/state";
 
     const mapGetters = Vuex.mapGetters;
@@ -56,8 +56,6 @@
         components: {
             lineChart,
             inputField,
-        },
-        props: {
         },
         data() {
             return {
@@ -107,8 +105,6 @@
             },
 
         },
-        mounted() {
-        },
         methods: {
             ...mapMutations({
                 'setThreshold': MUTATION_TYPES.SET_THRESHOLD,
@@ -144,14 +140,6 @@
             }
         },
         watch: {
-            dataPoints: {
-                immediate: true,
-                handler(newState) {
-                    if(newState === STATES.ERROR) {
-                        this.addErrorNotification('System Error', this.error);
-                    }
-                },
-            },
             dataState: {
                 immediate: true,
                 handler(newState) {
@@ -164,7 +152,6 @@
     }
 </script>
 
-<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>
     .chart-container {
         position: relative;
@@ -174,6 +161,10 @@
         padding: 10px 20px;
         color: #3104af;
         font-weight: bold;
+        cursor: pointer;
+    }
+    .radio-container label, .radio-container input {
+        cursor: pointer;
     }
     .configuration {
         background-color: #efdff3;

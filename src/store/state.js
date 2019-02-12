@@ -1,4 +1,4 @@
-import DATA_SOURCES from '../logic/DATA_SOURCES';
+import DATA_SOURCES from '../assets/DATA_SOURCES';
 
 const STATES = {
     EMPTY: 'empty',

@@ -1,7 +1,7 @@
 import { map } from "lodash";
 import { STATE_KEYS, STATES } from './state';
-import DATA_SOURCES from '../logic/DATA_SOURCES';
-import { joinAllValues, getArrAverage, shortDecimal } from "../logic/utils";
+import DATA_SOURCES from '../assets/DATA_SOURCES';
+import { joinAllValues, getArrAverage, shortDecimal } from "../assets/utils";
 
 const MUTATION_TYPES = {
     SET_DATA: 'setData',

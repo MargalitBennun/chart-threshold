@@ -20,6 +20,13 @@ export function getArrMin(arr) {
         });
     }
 }
+
+/**
+ * Take array of objects and join together all given keys to one array
+ * @param arr
+ * @param keys
+ * @returns {Array}
+ */
 export function joinAllValues(arr, keys) {
     let joinedValues = [];
     keys.forEach((key) => {

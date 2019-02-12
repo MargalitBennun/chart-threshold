@@ -36,31 +36,32 @@
         data() {
             return {
                 hasError: false,
-                errorText: ''
             };
-        },
-        computed: {
-        },
-        mounted() {
         },
         methods: {
             onChange(event) {
-                const val = event.target.value;
+                this.validateAndEmitChanges(event.target.value);
+            },
+            validateAndEmitChanges(val) {
                 if(!isNaN(this.min) && parseFloat(val) < this.min) {
                     this.onError(`Minimum allowed value: ${this.min}`);
                 } else if(!isNaN(this.max) && parseFloat(val) > this.max){
                     this.onError(`Maximum  allowed value: ${this.max}`);
                 } else {
                     this.hasError = false;
-                    this.$emit('change', val)
+                    this.$emit('change', val);
                 }
             },
             onError(error) {
                 this.hasError = true;
-                this.errorText = error;
                 this.$emit('error', error);
             }
-        }
+        },
+        watch: {
+            value(newValue) {
+                this.validateAndEmitChanges(newValue);
+            },
+        },
     }
 </script>
 

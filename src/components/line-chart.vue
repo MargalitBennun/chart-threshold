@@ -11,12 +11,12 @@
     import { map } from 'lodash';
 
     const lineColors = [
-        '#0512ff',
-        '#ff8e06',
-        '#04ff4a',
-        '#fc0dff',
-        '#fcff03',
-        '#07b4ff',
+        '#3104af',
+        '#fb04fb',
+        '#efdff3',
+        '#9f9eff',
+        '#6cbbff',
+        '#ff0c8f',
     ];
 
     export default {
@@ -107,4 +107,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .line-chart {
+        background-color: white;
+        margin: 0 50px;
+    }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <h1>Chart Data:</h1>
+        <h1>Chart Data</h1>
         <notifications group="systemNotifications" />
         <chart-container ></chart-container>
     </div>
@@ -38,12 +38,18 @@
 <style>
     #app {
         margin: 0;
+        background-color: #f9f8f8;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
-        color: #2c3e50;
         color: #3104af;
         font-weight: bold;
+        font-size: 1.2em;
     }
 </style>

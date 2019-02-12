@@ -170,5 +170,6 @@
         background-color: #efdff3;
         display: inline-block;
         margin-bottom: 40px;
+        border-radius: 5px;
     }
 </style>

@@ -40,16 +40,6 @@ export function joinAllValues(arr, keys) {
  * @param num
  * @returns {string}
  */
-export function formatNumber (num) {
-    let shortNum = num % 1 === 0 ? num : num.toFixed(2);
-    return shortNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-/**
- * Add commas to a number bigger than 999, and short float number to 2 numbers after the dot.
- * @param num
- * @returns {string}
- */
 export function shortDecimal (num) {
     if(!isNaN(num)) {
         let shortNum = num % 1 === 0 ? num : num.toFixed(2);

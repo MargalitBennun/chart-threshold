@@ -42,14 +42,14 @@ export {
 };
 
 function parseData(data, yAxises) {
-    const isObjects = !Array.isArray(data);
+    const isObject = typeof data === 'object' && !Array.isArray(data);
     let parsedData;
     return map(data, (value, key) => {
         parsedData = value;
         yAxises.forEach(yAxis => {
             parsedData[yAxis] = parseFloat(parsedData[yAxis]);
         });
-        if(isObjects) {
+        if(isObject) {
             parsedData.xAxis = key;
         }
         return parsedData;

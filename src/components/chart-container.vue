@@ -41,7 +41,7 @@
     import { GETTER_TYPES } from "../store/getters";
     import { MUTATION_TYPES } from "../store/mutations";
     import { ACTION_TYPES } from "../store/actions";
-    import DATA_SOURCES from '../assets/DATA_SOURCES';
+    import DATA_SOURCES from '../assets/dataSources';
     import lineChart from './line-chart';
     import inputField from './input-field';
     import {getArrMax, getArrMin, joinAllValues} from '../assets/utils';

@@ -7,7 +7,7 @@
 
 <script>
     import Chart from 'chart.js';
-    import ChartLineWithThreshold from '../assets/lib/ChartLineWithThreshold';
+    import ChartLineWithThreshold from '../assets/ChartLineWithThreshold';
     import { map } from 'lodash';
 
     const lineColors = [

@@ -12,7 +12,7 @@ const actions = {
             const source = state[STATE_KEYS.DATA_SOURCE];
             fetch(source.url).then(response =>
                 response.json().then(data => {
-                        let dataObj = get(data, state[STATE_KEYS.DATA_SOURCE].dataKey, data);
+                        const dataObj = get(data, state[STATE_KEYS.DATA_SOURCE].dataKey, data);
                         commit(MUTATION_TYPES.SET_DATA, dataObj);
                         resolve(data);
                     }

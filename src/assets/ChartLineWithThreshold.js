@@ -1,13 +1,13 @@
-import Chart from '../../../node_modules/chart.js/src/chart';
+import Chart from 'chart.js';
 
 const THRESHOLD_COLOR = 'red';
 
 const ChartLineWithThreshold = {
     addElements: function() {
-        Chart.controllers.bubble.prototype.addElements.call(this);
+        Chart.controllers.line.prototype.addElements.call(this);
     },
     addElementAndReset: function(index) {
-        Chart.controllers.bubble.prototype.addElementAndReset.call(this, index);
+        Chart.controllers.line.prototype.addElementAndReset.call(this, index);
     },
     draw: function(ease) {
         Chart.controllers.line.prototype.draw.call(this, ease);
@@ -31,7 +31,7 @@ function drawThreshold() {
     const thresholdValue = this.chart.options.threshold;
     const thresholdY = this.chart.scales['y-axis-0'].getPixelForValue(thresholdValue);
 
-    addRedDashedLine(this.chart.ctx,
+    drawRedDashedLine(this.chart.ctx,
         thresholdY,
         this.chart.chartArea.left,
         this.chart.chartArea.right
@@ -41,27 +41,25 @@ function drawThreshold() {
 function markAllExceedThresholdPoints() {
     const thresholdValue = this.chart.options.threshold;
 
-    var ctx = this.chart.ctx;
+    const ctx = this.chart.ctx;
     const dataSets = this.chart.data.datasets;
-    let _metaData;
-    let _meta;
-    let pt;
 
     dataSets.forEach((dataset) => {
-        _meta = dataset._meta[Object.keys(dataset._meta)[0]];
+        const metaKey = Object.keys(dataset._meta)[0];
+        const _meta = dataset._meta[metaKey];
         if(_meta.$filler.visible) {
-            _metaData = _meta.data;
-            dataset.data.forEach((currData, j) => {
+            const _metaData = _meta.data;
+            dataset.data.forEach((currData, index) => {
                 if (currData > thresholdValue) {
-                    pt = _metaData[j];
-                    addRedCircle(ctx, pt._view.x, pt._view.y, pt._view.radius);
+                    const pt = _metaData[index];
+                    drawRedCircle(ctx, pt._view.x, pt._view.y, pt._view.radius);
                 }
             });
         }
     });
 }
 
-function addRedDashedLine(ctx, y, startX, endX) {
+function drawRedDashedLine(ctx, y, startX, endX) {
     ctx.beginPath();
     ctx.strokeStyle = 'red';
     ctx.setLineDash([5, 15]);
@@ -70,7 +68,7 @@ function addRedDashedLine(ctx, y, startX, endX) {
     ctx.closePath();
     ctx.stroke();
 }
-function addRedCircle(ctx, x, y, radius) {
+function drawRedCircle(ctx, x, y, radius) {
     ctx.beginPath();
     ctx.strokeStyle = THRESHOLD_COLOR;
     ctx.fillStyle = THRESHOLD_COLOR;

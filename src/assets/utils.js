@@ -36,7 +36,7 @@ export function joinAllValues(arr, keys) {
 }
 
 /**
- * Add commas to a number bigger than 999, and short float number to 2 numbers after the dot.
+ * Short decimal number to 2 numbers after the dot.
  * @param num
  * @returns {string}
  */

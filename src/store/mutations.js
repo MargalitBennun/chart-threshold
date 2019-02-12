@@ -1,6 +1,6 @@
 import { map } from "lodash";
 import { STATE_KEYS, STATES } from './state';
-import DATA_SOURCES from '../assets/DATA_SOURCES';
+import DATA_SOURCES from '../assets/dataSources';
 import { joinAllValues, getArrAverage, shortDecimal } from "../assets/utils";
 
 const MUTATION_TYPES = {

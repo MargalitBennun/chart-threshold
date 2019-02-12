@@ -1,4 +1,4 @@
-import DATA_SOURCES from '../assets/DATA_SOURCES';
+import DATA_SOURCES from '../assets/dataSources';
 
 const STATES = {
     EMPTY: 'empty',
